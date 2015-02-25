@@ -12,7 +12,6 @@ if __name__ == '__main__':
         tasks = {executor.submit(Extractor.extract, start, start + 10): start for start in range(1, 25)}
 
         for index, future in enumerate(futures.as_completed(tasks)):
-            task = tasks[future]
             try:
                 data = future.result()
                 datum.append(data)
